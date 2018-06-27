@@ -78,10 +78,15 @@ We've been talking about the properties preserved through certain functions we'v
 <p align="center"><img width="519" alt="monotone-map1" src="https://user-images.githubusercontent.com/24247/41991771-aa30feee-7a14-11e8-879e-c1a82e48c7ff.png"></p>
 <p align="center"><img width="703" alt="monotone-map2" src="https://user-images.githubusercontent.com/24247/41991772-aa54a434-7a14-11e8-9121-6d40c98ff8ec.png"></p>
 
-
 # Meets and joins
 
+As we said earlier, posets are sets with a simple order functions between elements. We can use this structure to define two types of elements with special properties. In the generative effect example we talked about joins and now we'll also talk about meets.
+
 <p align="center"><img width="500" alt="joins-and-meets" src="https://user-images.githubusercontent.com/24247/41992424-690714d8-7a16-11e8-85e2-2674c73a31e2.png"></p>
+
+
+# Back to Generative Effects
+
 
 # Galois connections
 
