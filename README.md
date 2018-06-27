@@ -21,7 +21,7 @@ Transitivity :: a =< b && b =< c implies a =< c
 
 ## Observations and effects
 
-<img width="727" alt="screen shot 2018-06-27 at 11 40 28 am" src="https://user-images.githubusercontent.com/24247/41984757-776d96d0-79ff-11e8-8afb-909aa2202bca.png">
+<img width="727" style="text-align:center" alt="screen shot 2018-06-27 at 11 40 28 am" src="https://user-images.githubusercontent.com/24247/41984757-776d96d0-79ff-11e8-8afb-909aa2202bca.png">
 <img width="706" alt="screen shot 2018-06-27 at 11 40 33 am" src="https://user-images.githubusercontent.com/24247/41984758-7786108e-79ff-11e8-8e83-4fe308a4378c.png">
 
 
