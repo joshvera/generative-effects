@@ -75,6 +75,8 @@ As we've already seen, the `isDotConnectedToStar` does not preserve through join
 
 We've been talking about the properties preserved through certain functions we've defined. In the above case, that the `isDotConnectedToStar` function preserves order, but not joins. If we jump up a level, and talk about how posets themselves can be related we can talk about monotone maps. Monotone maps are functions that preserve poset orders. Let's take a look at some examples.
 
+<p align="center"><img width="519" alt="monotone-map1" src="https://user-images.githubusercontent.com/24247/41991771-aa30feee-7a14-11e8-879e-c1a82e48c7ff.png"></p>
+<p align="center"><img width="703" alt="monotone-map2" src="https://user-images.githubusercontent.com/24247/41991772-aa54a434-7a14-11e8-9121-6d40c98ff8ec.png"></p>
 
 
 # Meets and joins
