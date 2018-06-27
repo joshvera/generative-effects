@@ -81,6 +81,8 @@ We've been talking about the properties preserved through certain functions we'v
 
 # Meets and joins
 
+<p align="center"><img width="500" alt="joins-and-meets" src="https://user-images.githubusercontent.com/24247/41992424-690714d8-7a16-11e8-85e2-2674c73a31e2.png"></p>
+
 # Galois connections
 
 posets are a special case of categories,
