@@ -24,19 +24,38 @@ Reflexivity :: x =< x
 Transitivity :: a =< b && b =< c implies a =< c
 
 ## Observations and effects
+
+Let's explore a couple of functions on sets. Here we have an unconnected set of three points. We'll call them the dot, circle, and star. The system I'll describe will be a way of connecting these dots together. We might think of these points as sites on a power grid, computers on a network, or people susceptible to some disease.
+
 <p align="center"><img width="105" alt="unconnected-set" src="https://user-images.githubusercontent.com/24247/41985857-83eacea2-7a02-11e8-96f1-dbd0f13b164e.png"></p>
+
+Connections in this system are symmetric, which is to say if a is connected to b, then b is connected to a. They're also transitive just like the partial order law we described above. If a is connected to b and b is connected to c then a is connected to c. We can contrast this system with a system like friendship. The friend of my friend is not necessarily my friend.
+
 <p align="center"><img width="95" alt="connected-set" src="https://user-images.githubusercontent.com/24247/41985858-83ff280c-7a02-11e8-8a04-1fec6894e594.png"></p>
 
+Say we had a function or an observation about this system which had the type of:
+
+```haskell
+isDotConnectedToStar :: PointSet -> Bool
+```
+
+For the following set it would be true.
 
 <p align="center"><img width="350" alt="more-sets" src="https://user-images.githubusercontent.com/24247/41985865-84607e90-7a02-11e8-8127-2e401eaff391.png"></p>
+
+And for the following set it would be false.
+
 <p align="center"><img width="238" alt="other-sets" src="https://user-images.githubusercontent.com/24247/41985863-8436ef9e-7a02-11e8-8225-2b2f7b63f27f.png"></p>
 
-<p align="center"><img width="213" alt="set-inequality" src="https://user-images.githubusercontent.com/24247/41985862-8421a56c-7a02-11e8-8dd2-9ff8c6e06ffb.png"></p>
-<p align="center"><img width="405" alt="all-sets" src="https://user-images.githubusercontent.com/24247/41985864-84471b44-7a02-11e8-9114-5f64cedeaeda.png"></p>
+Now let's define another operation on this type of system we'll call join.
 
 <p align="center"><img width="393" alt="join-operation" src="https://user-images.githubusercontent.com/24247/41985860-840dd424-7a02-11e8-9ff8-dabdb441bebe.png"></p>
 
 <p align="center"><img width="399" alt="generative-effect" src="https://user-images.githubusercontent.com/24247/41985856-83d4b8ba-7a02-11e8-887e-80b6510521ff.png"></p>
+
+
+<p align="center"><img width="213" alt="set-inequality" src="https://user-images.githubusercontent.com/24247/41985862-8421a56c-7a02-11e8-8dd2-9ff8c6e06ffb.png"></p>
+<p align="center"><img width="405" alt="all-sets" src="https://user-images.githubusercontent.com/24247/41985864-84471b44-7a02-11e8-9114-5f64cedeaeda.png"></p>
 
 
 
