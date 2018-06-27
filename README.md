@@ -28,13 +28,13 @@ Transitivity :: a =< b && b =< c implies a =< c
 <img width="653" alt="screen shot 2018-06-27 at 11 40 17 am" src="https://user-images.githubusercontent.com/24247/41984783-86560556-79ff-11e8-8f5f-92dbe8064aff.png">
 <img width="623" alt="screen shot 2018-06-27 at 11 40 23 am" src="https://user-images.githubusercontent.com/24247/41984784-867df502-79ff-11e8-9223-93421c24c02e.png">
 
-<img width="541" alt="screen shot 2018-06-27 at 11 24 45 am" src="https://user-images.githubusercontent.com/24247/41984814-9aac619e-79ff-11e8-94a7-fb88feb3fe4f.png">
-<img width="652" alt="screen shot 2018-06-27 at 11 25 01 am" src="https://user-images.githubusercontent.com/24247/41984815-9ac04a7e-79ff-11e8-83d3-7494daa8a110.png">
+<img width="541" style="text-align:center" alt="screen shot 2018-06-27 at 11 24 45 am" src="https://user-images.githubusercontent.com/24247/41984814-9aac619e-79ff-11e8-94a7-fb88feb3fe4f.png">
+<img width="652" style="text-align:center" alt="screen shot 2018-06-27 at 11 25 01 am" src="https://user-images.githubusercontent.com/24247/41984815-9ac04a7e-79ff-11e8-83d3-7494daa8a110.png">
 
-<img width="549" alt="screen shot 2018-06-27 at 11 40 48 am" src="https://user-images.githubusercontent.com/24247/41984726-5e66c198-79ff-11e8-9465-1067a9d672bd.png">
-<img width="735" alt="screen shot 2018-06-27 at 11 40 42 am" src="https://user-images.githubusercontent.com/24247/41984739-6839050a-79ff-11e8-900e-ebd229e69e6f.png">
+<img width="549" style="text-align:center" alt="screen shot 2018-06-27 at 11 40 48 am" src="https://user-images.githubusercontent.com/24247/41984726-5e66c198-79ff-11e8-9465-1067a9d672bd.png">
+<img width="735" style="text-align:center" alt="screen shot 2018-06-27 at 11 40 42 am" src="https://user-images.githubusercontent.com/24247/41984739-6839050a-79ff-11e8-900e-ebd229e69e6f.png">
 
-<img width="747" alt="screen shot 2018-06-27 at 11 39 59 am" src="https://user-images.githubusercontent.com/24247/41984689-4aa332f4-79ff-11e8-8739-04fafb8f1993.png">
+<img width="747" style="text-align:center" alt="screen shot 2018-06-27 at 11 39 59 am" src="https://user-images.githubusercontent.com/24247/41984689-4aa332f4-79ff-11e8-8739-04fafb8f1993.png">
 
 
 # Monotone Maps
