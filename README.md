@@ -21,20 +21,15 @@ Transitivity :: a =< b && b =< c implies a =< c
 
 ## Observations and effects
 
-<img width="727" align="center" alt="screen shot 2018-06-27 at 11 40 28 am" src="https://user-images.githubusercontent.com/24247/41984757-776d96d0-79ff-11e8-8afb-909aa2202bca.png">
-<img width="706" alt="screen shot 2018-06-27 at 11 40 33 am" src="https://user-images.githubusercontent.com/24247/41984758-7786108e-79ff-11e8-8e83-4fe308a4378c.png">
+<img width="399" align="center" alt="generative-effect" src="https://user-images.githubusercontent.com/24247/41985856-83d4b8ba-7a02-11e8-887e-80b6510521ff.png">
+<img width="105" align="center" alt="unconnected-set" src="https://user-images.githubusercontent.com/24247/41985857-83eacea2-7a02-11e8-96f1-dbd0f13b164e.png">
+<img width="95" align="center" alt="connected-set" src="https://user-images.githubusercontent.com/24247/41985858-83ff280c-7a02-11e8-8a04-1fec6894e594.png">
+<img width="393" align="center" alt="join-operation" src="https://user-images.githubusercontent.com/24247/41985860-840dd424-7a02-11e8-9ff8-dabdb441bebe.png">
+<img width="213" align="center" alt="set-inequality" src="https://user-images.githubusercontent.com/24247/41985862-8421a56c-7a02-11e8-8dd2-9ff8c6e06ffb.png">
+<img width="238" align="center" alt="other-sets" src="https://user-images.githubusercontent.com/24247/41985863-8436ef9e-7a02-11e8-8225-2b2f7b63f27f.png">
+<img width="405" align="center" alt="all-sets" src="https://user-images.githubusercontent.com/24247/41985864-84471b44-7a02-11e8-9114-5f64cedeaeda.png">
+<img width="350" align="center" alt="more-sets" src="https://user-images.githubusercontent.com/24247/41985865-84607e90-7a02-11e8-8127-2e401eaff391.png">
 
-
-<img width="653"  align="center" alt="screen shot 2018-06-27 at 11 40 17 am" src="https://user-images.githubusercontent.com/24247/41984783-86560556-79ff-11e8-8f5f-92dbe8064aff.png">
-<img width="623" alt="screen shot 2018-06-27 at 11 40 23 am" src="https://user-images.githubusercontent.com/24247/41984784-867df502-79ff-11e8-9223-93421c24c02e.png">
-
-<img width="541"  align="center" alt="screen shot 2018-06-27 at 11 24 45 am" src="https://user-images.githubusercontent.com/24247/41984814-9aac619e-79ff-11e8-94a7-fb88feb3fe4f.png">
-<img width="652" style="text-align:center" alt="screen shot 2018-06-27 at 11 25 01 am" src="https://user-images.githubusercontent.com/24247/41984815-9ac04a7e-79ff-11e8-83d3-7494daa8a110.png">
-
-<img width="549" align="center" alt="screen shot 2018-06-27 at 11 40 48 am" src="https://user-images.githubusercontent.com/24247/41984726-5e66c198-79ff-11e8-9465-1067a9d672bd.png">
-<img width="735" align="center" alt="screen shot 2018-06-27 at 11 40 42 am" src="https://user-images.githubusercontent.com/24247/41984739-6839050a-79ff-11e8-900e-ebd229e69e6f.png">
-
-<img width="747" align="center" alt="screen shot 2018-06-27 at 11 39 59 am" src="https://user-images.githubusercontent.com/24247/41984689-4aa332f4-79ff-11e8-8739-04fafb8f1993.png">
 
 
 # Monotone Maps
