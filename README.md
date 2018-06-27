@@ -82,13 +82,56 @@ We've been talking about the properties preserved through certain functions we'v
 
 As we said earlier, posets are sets with a simple order functions between elements. We can use this structure to define two types of elements with special properties. In the generative effect example we talked about joins and now we'll also talk about meets.
 
+The meets of some poset P would be the greatest lower bound elements of P. The joins of some poset P would be the lowest upper bounds of P. They are also referred to the infima and the suprema, respectively.
+
 <p align="center"><img width="500" alt="joins-and-meets" src="https://user-images.githubusercontent.com/24247/41992424-690714d8-7a16-11e8-85e2-2674c73a31e2.png"></p>
 
 
 # Back to Generative Effects
+Adam Elie wrote his PhD Thesis in 2017 on Systems, Generativity and Interactional Effects where he thinks of monotone functions as observations. A monotone function of type P -> Q is a phenomenon of P as observed by Q. He defines generative effects of such a function to be its failure to preserve joins.
 
+We say that a monotone function `m :: P -> Q` preserves meets if m(a `meet` b) = m(a) `meet` m(b). We say that a monotone function preserves joins if m(a `join` b) = m(a) `join` m(b).
+
+We say that a monotone function `m :: P -> Q` sustains generative effects if there exist elements `a :: P, q :: P` such that
+
+```haskell
+m(a) `join` m(b) != m(a `join` b)
+```
+
+If what Adam proposes is true, the process of combining large systems or reasoning about their subsystems depends on our ability to preserve the joins or meets of that system, respectively.
 
 # Galois connections
+
+So now we've gotten to the cool part which are Galois connections. Galois connections are a fancy name for _a pair of functions that tell you the best possible way to recover data that can't be recovered_. More precisely, they tell you _the best approximation to reversing a computation that can't be reversed_.
+
+Say someone hands you the output of some computation, and asks you what the input was. Sometimes there's a unique right answer. But sometimes there's more than one answer, or no answer! So here things might seem impossible but we can't let that stop us.
+
+Ok so let's define what one is. A Galois connection between two posets P and Q is a pair of monotone functions `f :: P -> Q` and `g :: Q -> P` such that `f(p) =< q` iff `p =< g(q)`. We say that f is the left adjoint and g is the right adjoint.
+
+Let's break down what this means. Say a function that doubles every natural number:
+
+```haskell
+f :: Integer -> Integer
+f a = 2 * a
+```
+
+So if I say `2a = 4` tell me `a` you'd say 2. But if I say `2a = 3` tell me `a` you can't do it because there's no inverse here. 2 / a isn't defined for 3. But let's find an approximation anyway and this function `g` paired with `f` will end up being a galois connection.
+
+1. f(a) =< b iff p =< g(b)
+2. 2a =< b iff a =< g(b)
+3. 2a =< b iff a =< b / 2
+4. 2a =< b iff a =< floor(b / 2)
+5. 2a =< b iff a =< ceiling(b / 2)
+
+So here we have two definitions for `g`, one from below and one from above. `2a = 3` would result in `1` if we use `floor(b / 2)` or `2` if we use the more liberal definition of `ceil(b / 2)`. In this case, the left adjoint is the approximation "from below". It comes as close as possible to the (perhaps nonexistent) correct answer while making sure to never choose a number that is _too small_. The right adjoint comes as close as possible to making sure a number is not _too big_.
+
+If some function `f :: A -> B` has a left or right adjoint and `A` is a poset, those adjoints are _unique_. So it's always a good idea to try to find them!
+
+Right adjoints preserve meets. Similarly, left adjoints preserve joins.
+
+
+
+# Conclusion
 
 posets are a special case of categories,
 monotone functions between posets are a special case of functors between categories,
@@ -97,5 +140,14 @@ left adjoint monotone functions are a special case of left adjoint functors,
 right adjoint monotone functions are a special case of right adjoint functors,
 meets are a special case of limits, and
 joins are a special case of colimits.
+
+
+
+- Define what a galois connection is
+- Give example of y = x / 2 for Integers
+- Give example of [Ball] -> [Box Ball]
+
+
+
 
 
