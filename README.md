@@ -39,32 +39,47 @@ Say we had a function or an observation about this system which had the type of:
 isDotConnectedToStar :: PointSet -> Bool
 ```
 
-For the following set it would be true.
+For the following set it would be false.
 
-<p align="center"><img width="350" alt="more-sets" src="https://user-images.githubusercontent.com/24247/41985865-84607e90-7a02-11e8-8127-2e401eaff391.png"></p>
+<p align="center"><img width="350" alt="dot-not-connected-to-star" src="https://user-images.githubusercontent.com/24247/41985865-84607e90-7a02-11e8-8127-2e401eaff391.png"></p>
 
-And for the following set it would be false.
+And for the following set it would be true.
 
-<p align="center"><img width="238" alt="other-sets" src="https://user-images.githubusercontent.com/24247/41985863-8436ef9e-7a02-11e8-8225-2b2f7b63f27f.png"></p>
+<p align="center"><img width="238" alt="dot-connected-to-star" src="https://user-images.githubusercontent.com/24247/41985863-8436ef9e-7a02-11e8-8225-2b2f7b63f27f.png"></p>
 
-Now let's define another operation on this type of system we'll call join.
+Now let's define another operation on this type of system we'll call join. The join of two systems is given by combining their connections. We denote this with `⌄` that kind of looks like a union operation but it does a little more. The high-level way to say this is "to take the transitive closure of the union of the connections in A and B."
 
 <p align="center"><img width="393" alt="join-operation" src="https://user-images.githubusercontent.com/24247/41985860-840dd424-7a02-11e8-9ff8-dabdb441bebe.png"></p>
 
+- So this is fine in the above case, but below we see that the `isDotConnectedToStar` would be false for both point sets, but true for the join f the point sets. The join operation has led to what is called a generative effect, or an operation that does not preserve the observations of the systems. While this is a pretty simple example, knowing whether a function leads to generative effects is incredibly important within the context of any category, data structure and its operations.
+
 <p align="center"><img width="399" alt="generative-effect" src="https://user-images.githubusercontent.com/24247/41985856-83d4b8ba-7a02-11e8-887e-80b6510521ff.png"></p>
 
+## Back to order
+
+Category theory is all about organizing and layering structures. If we think about the sets we've talked about and the `lessThanOrEq` relation we can see that our `isDotConnectedToStar` function preserves the order between our sets. Let's say we define `lessThanOrEq` by saying that sets with smaller connections are smaller than sets with larger connections.
 
 <p align="center"><img width="213" alt="set-inequality" src="https://user-images.githubusercontent.com/24247/41985862-8421a56c-7a02-11e8-8dd2-9ff8c6e06ffb.png"></p>
+
+If we take a look at the whole set, we can see that running the whole thing through `isDotConnectedToStar` preserves the order. The bottom set would be false, the left and right set would be false, the middle and top set would be true.
+
 <p align="center"><img width="405" alt="all-sets" src="https://user-images.githubusercontent.com/24247/41985864-84471b44-7a02-11e8-9114-5f64cedeaeda.png"></p>
 
+As we've already seen, the `isDotConnectedToStar` does not preserve through join operations so we need an additional inequality to describe that behavior:
 
+```haskell
+(isDotConnectedToStar a `join` isDotConnectedToStar b) `lessThanOrEq` isDotConnectedToStar (a `join` b)
+```
 
 # Monotone Maps
+
+We've been talking about the properties preserved through certain functions we've defined. In the above case, that the `isDotConnectedToStar` function preserves order, but not joins. If we jump up a level, and talk about how posets themselves can be related we can talk about monotone maps. Monotone maps are functions that preserve poset orders. Let's take a look at some examples.
+
+
 
 # Meets and joins
 
 # Galois connections
-
 
 posets are a special case of categories,
 monotone functions between posets are a special case of functors between categories,
