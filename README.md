@@ -6,6 +6,11 @@ Category theory is a branch of mathematics originally developed to transport ide
 - Systems biology
 - Cognition and AI
 - Causality
+- Open Markov processes and open chemical reaction networks
+- Entropy and Relative Entropy
+- Descriptions of computer hardware
+- Databases
+- Accounting Systems
 
 # Outline
 
@@ -148,5 +153,8 @@ Joins are a special case of colimits.
 
 # References
 
+[Seven Sketches in Applied Category Theory](https://math.mit.edu/~dspivak/teaching/sp18/7Sketches.pdf)
+
 [Applied Category Theory Course: Ordered Sets](https://johncarlosbaez.wordpress.com/2018/04/07/applied-category-theory-course-part-2/)
+
 [Applied Category Theory](http://www.appliedcategorytheory.org/)
