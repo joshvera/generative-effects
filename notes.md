@@ -1,6 +1,19 @@
-# Generative effects: Posets and Galois connections
+# Applied Category Theory
 
-Hey everyone
+Category theory is a branch of mathematics originally developed to transport ideas from one branch of mathematics to another, e.g. from topology to algebra. Applied category theory refers to efforts to transport the ideas of category theory from mathematics to other disciplines in science, engineering, and industry.
+
+- Dynamical systems and networks
+- Systems biology
+- Cognition and AI
+- Causality
+
+# Outline
+
+- Generative Effects
+- Posets
+- Monotone functions
+- Galois Connections
+- Meets and joins
 
 # Generative Effects
 
@@ -9,7 +22,7 @@ Hey everyone
 
 - First we need something categories to play with so let's start with an interesting one called the category of posets.
 - Whenever you have a set of things and a reasonable way deciding when anything in that set is "bigger" than some other thing, or "more expensive", or "taller", or "heavier", or "better" in any well-defined sense, or... anything like that, you've got a poset.
-- In Haskell we might define this using a typeclass
+- In Haskell we might define this using a typeclass:
 
 ```haskell
 class Eq a => PartialOrd a where

@@ -7,7 +7,13 @@ Category theory is a branch of mathematics originally developed to transport ide
 - Cognition and AI
 - Causality
 
-# Generative effects: Posets and Galois connections
+# Outline
+
+- Generative Effects
+- Posets
+- Monotone functions
+- Galois Connections
+- Meets and joins
 
 # Generative Effects
 
