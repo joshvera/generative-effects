@@ -32,9 +32,11 @@ class Eq a => PartialOrd a where
 
 When y is bigger than x we write x =< y. x `lte` y.
 
+```haskell
 Reflexivity :: x =< x
 
 Transitivity :: a =< b && b =< c implies a =< c
+```
 
 ## Observations and effects
 
