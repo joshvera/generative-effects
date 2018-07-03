@@ -104,13 +104,50 @@ If what Adam proposes is true, the process of combining large systems or reasoni
 
 So now we've gotten to the cool part which are Galois connections. Galois connections are a fancy name for _a pair of functions that tell you the best possible way to recover data that can't be recovered_. More precisely, they tell you _the best approximation to reversing a computation that can't be reversed_.
 
+Say someone hands you the output of some computation, and asks you what the input was. Sometimes there's a unique right answer. But sometimes there's more than one answer, or no answer! So here things might seem impossible but we can't let that stop us.
+
+Ok so let's define what one is. A Galois connection between two posets P and Q is a pair of monotone functions `f :: P -> Q` and `g :: Q -> P` such that `f(p) =< q` iff `p =< g(q)`. We say that f is the left adjoint and g is the right adjoint.
+
+Let's break down what this means. Say a function that doubles every natural number:
+
+```haskell
+f :: Integer -> Integer
+f a = 2 * a
+```
+
+So if I say `2a = 4` tell me `a` you'd say 2. But if I say `2a = 3` tell me `a` you can't do it because there's no inverse here. 2 / a isn't defined for 3. But let's find an approximation anyway and this function `g` paired with `f` will end up being a galois connection.
+
+1. f(a) =< b iff p =< g(b)
+2. 2a =< b iff a =< g(b)
+3. 2a =< b iff a =< b / 2
+4. 2a =< b iff a =< floor(b / 2)
+5. 2a =< b iff a =< ceiling(b / 2)
+
+So here we have two definitions for `g`, one from below and one from above. `2a = 3` would result in `1` if we use `floor(b / 2)` or `2` if we use the more liberal definition of `ceil(b / 2)`. In this case, the left adjoint is the approximation "from below". It comes as close as possible to the (perhaps nonexistent) correct answer while making sure to never choose a number that is _too small_. The right adjoint comes as close as possible to making sure a number is not _too big_.
+
+If some function `f :: A -> B` has a left or right adjoint and `A` is a poset, those adjoints are _unique_. So it's always a good idea to try to find them!
+
+Right adjoints preserve meets. Similarly, left adjoints preserve joins.
+
+
 
 # Conclusion
 
-Posets are a special case of categories,
-Monotone functions between posets are a special case of functors between categories,
+posets are a special case of categories,
+monotone functions between posets are a special case of functors between categories,
 Galois connections between posets are a special case of adjoint functors between categories,
-Left adjoint monotone functions are a special case of left adjoint functors,
-Right adjoint monotone functions are a special case of right adjoint functors,
-Meets are a special case of limits, and
-Joins are a special case of colimits.
+left adjoint monotone functions are a special case of left adjoint functors,
+right adjoint monotone functions are a special case of right adjoint functors,
+meets are a special case of limits, and
+joins are a special case of colimits.
+
+
+
+- Define what a galois connection is
+- Give example of y = x / 2 for Integers
+- Give example of [Ball] -> [Box Ball]
+
+
+
+
+
