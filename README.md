@@ -104,6 +104,22 @@ If what Adam proposes is true, the process of combining large systems or reasoni
 
 So now we've gotten to the cool part which are Galois connections. Galois connections are a fancy name for _a pair of functions that tell you the best possible way to recover data that can't be recovered_. More precisely, they tell you _the best approximation to reversing a computation that can't be reversed_.
 
+```Haskell
+-- a function that takes a set of balls and places them in a set of buckets
+f :: Set Ball -> Set Bucket
+f [1, 2, 3] = Set (First 1 2 2) (Second 1) (Third 1 1 2 3)
+
+-- A function that takes a set of buckets and tells you which balls are in them
+-- This might be called a pullback along f.
+f* :: Set Bucket -> Set Ball
+f* Set (First 3 2) (Second 1) = 3 2 1
+
+leftAdjointF :: Set Ball -> Set Bucket
+leftAdjointF [2, 3] = Set (Second 1) (Third 1 1 2 3)
+
+rightAdjointF :: Set Ball -> Set Bucket
+rightAdjointF [1] = Set (Second 1)
+```
 
 # Conclusion
 

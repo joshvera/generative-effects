@@ -125,6 +125,23 @@ So if I say `2a = 4` tell me `a` you'd say 2. But if I say `2a = 3` tell me `a` 
 
 So here we have two definitions for `g`, one from below and one from above. `2a = 3` would result in `1` if we use `floor(b / 2)` or `2` if we use the more liberal definition of `ceil(b / 2)`. In this case, the left adjoint is the approximation "from below". It comes as close as possible to the (perhaps nonexistent) correct answer while making sure to never choose a number that is _too small_. The right adjoint comes as close as possible to making sure a number is not _too big_.
 
+```Haskell
+-- a function that takes a set of balls and places them in a set of buckets
+f :: Set Ball -> Set Bucket
+f [1, 2, 3] = Set (First 1 2 2) (Second 1) (Third 1 1 2 3)
+
+-- A function that takes a set of buckets and tells you which balls are in them
+-- This might be called a pullback along f.
+f* :: Set Bucket -> Set Ball
+f* Set (First 3 2) (Second 1) = 3 2 1
+
+leftAdjointF :: Set Ball -> Set Bucket
+leftAdjointF [2, 3] = Set (Second 1) (Third 1 1 2 3)
+
+rightAdjointF :: Set Ball -> Set Bucket
+rightAdjointF [1] = Set (Second 1)
+```
+
 If some function `f :: A -> B` has a left or right adjoint and `A` is a poset, those adjoints are _unique_. So it's always a good idea to try to find them!
 
 Right adjoints preserve meets. Similarly, left adjoints preserve joins.
