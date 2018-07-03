@@ -1,6 +1,13 @@
-# Generative effects: Posets and Galois connections
+# Applied Category Theory
 
-Hey everyone
+Category theory is a branch of mathematics originally developed to transport ideas from one branch of mathematics to another, e.g. from topology to algebra. Applied category theory refers to efforts to transport the ideas of category theory from mathematics to other disciplines in science, engineering, and industry.
+
+- Dynamical systems and networks
+- Systems biology
+- Cognition and AI
+- Causality
+
+# Generative effects: Posets and Galois connections
 
 # Generative Effects
 
@@ -130,3 +137,8 @@ Left adjoint monotone functions are a special case of left adjoint functors,
 Right adjoint monotone functions are a special case of right adjoint functors,
 Meets are a special case of limits, and
 Joins are a special case of colimits.
+
+# References
+
+[Applied Category Theory Course: Ordered Sets](https://johncarlosbaez.wordpress.com/2018/04/07/applied-category-theory-course-part-2/)
+[Applied Category Theory](http://www.appliedcategorytheory.org/)
