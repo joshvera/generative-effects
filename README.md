@@ -6,11 +6,6 @@ Category theory is a branch of mathematics originally developed to transport ide
 - Systems biology
 - Cognition and AI
 - Causality
-- Open Markov processes and open chemical reaction networks
-- Entropy and Relative Entropy
-- Descriptions of computer hardware
-- Databases
-- Accounting Systems
 
 # Outline
 
@@ -27,7 +22,7 @@ Category theory is a branch of mathematics originally developed to transport ide
 
 - First we need something categories to play with so let's start with an interesting one called the category of posets.
 - Whenever you have a set of things and a reasonable way deciding when anything in that set is "bigger" than some other thing, or "more expensive", or "taller", or "heavier", or "better" in any well-defined sense, or... anything like that, you've got a poset.
-- In Haskell we might define this using a typeclass
+- In Haskell we might define this using a typeclass:
 
 ```haskell
 class Eq a => PartialOrd a where
@@ -37,11 +32,9 @@ class Eq a => PartialOrd a where
 
 When y is bigger than x we write x =< y. x `lte` y.
 
-```haskell
 Reflexivity :: x =< x
 
 Transitivity :: a =< b && b =< c implies a =< c
-```
 
 ## Observations and effects
 
@@ -108,9 +101,9 @@ The meets of some poset P would be the greatest lower bound elements of P. The j
 
 
 # Back to Generative Effects
-Adam Elie wrote his PhD Thesis in 2017 on Systems, Generativity and Interactional Effects where he thinks of monotone functions as observations. A monotone function of type P -> Q is a phenomenon of P as observed by Q. He defines generative effects of such a function to be its failure to preserve joins.
+Adam Elie wrote his PhD Thesis in 2017 on Systems, Generativity and Interactional Effects where he thinks of monotone functions as observations. A monotone function of type `P -> Q` is a phenomenon of `P` as observed by `Q`. He defines generative effects of such a function to be its failure to preserve joins.
 
-We say that a monotone function `m :: P -> Q` preserves meets if m(a `meet` b) = m(a) `meet` m(b). We say that a monotone function preserves joins if m(a `join` b) = m(a) `join` m(b).
+We say that a monotone function `m :: P -> Q` preserves meets if `m(a meet b) = m(a) meet m(b)`. We say that a monotone function preserves joins if `m(a join b) = m(a) join m(b)`.
 
 We say that a monotone function `m :: P -> Q` sustains generative effects if there exist elements `a :: P, q :: P` such that
 
@@ -124,6 +117,27 @@ If what Adam proposes is true, the process of combining large systems or reasoni
 
 So now we've gotten to the cool part which are Galois connections. Galois connections are a fancy name for _a pair of functions that tell you the best possible way to recover data that can't be recovered_. More precisely, they tell you _the best approximation to reversing a computation that can't be reversed_.
 
+Say someone hands you the output of some computation, and asks you what the input was. Sometimes there's a unique right answer. But sometimes there's more than one answer, or no answer! So here things might seem impossible but we can't let that stop us.
+
+Ok so let's define what one is. A Galois connection between two posets P and Q is a pair of monotone functions `f :: P -> Q` and `g :: Q -> P` such that `f(p) =< q` iff `p =< g(q)`. We say that f is the left adjoint and g is the right adjoint.
+
+Let's break down what this means. Say a function that doubles every natural number:
+
+```haskell
+f :: Integer -> Integer
+f a = 2 * a
+```
+
+So if I say `2a = 4` tell me `a` you'd say 2. But if I say `2a = 3` tell me `a` you can't do it because there's no inverse here. 2 / a isn't defined for 3. But let's find an approximation anyway and this function `g` paired with `f` will end up being a galois connection.
+
+1. f(a) =< b iff p =< g(b)
+2. 2a =< b iff a =< g(b)
+3. 2a =< b iff a =< b / 2
+4. 2a =< b iff a =< floor(b / 2)
+5. 2a =< b iff a =< ceiling(b / 2)
+
+So here we have two definitions for `g`, one from below and one from above. `2a = 3` would result in `1` if we use `floor(b / 2)`, or `2` if we use the more liberal definition of `ceil(b / 2)`. In this case, the left adjoint is the approximation "from below". It comes as close as possible to the (perhaps nonexistent) correct answer while making sure to never choose a number that is _too small_. The right adjoint comes as close as possible to making sure a number is not _too big_.
+
 ```Haskell
 -- a function that takes a set of balls and places them in a set of buckets
 f :: Set Ball -> Set Bucket
@@ -135,23 +149,30 @@ f* :: Set Bucket -> Set Ball
 f* Set (First 3 2) (Second 1) = 3 2 1
 
 -- This map hence takes a set of balls, and tells you all the buckets that contain at least one of these balls.
+-- The actual definition of leftAdjointF can be derived from the definitions of f and f*.
 leftAdjointF :: Set Ball -> Set Bucket
 leftAdjointF [2, 3] = Set (Second 1) (Third 1 1 2 3)
 
 -- This map takes a set of balls, and tells you all the buckets that only contain balls from the set.
+-- The actual definition of rightAdjointF can be derived from the definitions of f and f*.
 rightAdjointF :: Set Ball -> Set Bucket
 rightAdjointF [1] = Set (Second 1)
 ```
 
+If some function `f :: A -> B` has a left or right adjoint and `A` is a poset, those adjoints are _unique_. So it's always a good idea to try to find them!
+
+Right adjoints preserve meets. Similarly, left adjoints preserve joins.
+
 # Conclusion
 
-Posets are a special case of categories,
-Monotone functions between posets are a special case of functors between categories,
-Galois connections between posets are a special case of adjoint functors between categories,
-Left adjoint monotone functions are a special case of left adjoint functors,
-Right adjoint monotone functions are a special case of right adjoint functors,
-Meets are a special case of limits, and
-Joins are a special case of colimits.
+* Posets are a special case of categories,
+* Monotone functions between posets are a special case of functors between categories,
+* Galois connections between posets are a special case of adjoint functors between categories,
+* Left adjoint monotone functions are a special case of left adjoint functors,
+* Right adjoint monotone functions are a special case of right adjoint functors,
+* Meets are a special case of limits, and
+* Joins are a special case of colimits.
+
 
 # References
 
@@ -160,3 +181,5 @@ Joins are a special case of colimits.
 [Applied Category Theory Course: Ordered Sets](https://johncarlosbaez.wordpress.com/2018/04/07/applied-category-theory-course-part-2/)
 
 [Applied Category Theory](http://www.appliedcategorytheory.org/)
+
+[Systems, generativity and interactional effects](https://dspace.mit.edu/handle/1721.1/109012)
