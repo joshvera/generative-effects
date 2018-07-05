@@ -7,7 +7,7 @@ Category theory is a branch of mathematics originally developed to transport ide
 - Cognition and AI
 - Causality
 
-# Outline
+## Outline
 
 - Generative Effects
 - Posets
@@ -15,7 +15,7 @@ Category theory is a branch of mathematics originally developed to transport ide
 - Galois Connections
 - Meets and joins
 
-# Generative Effects
+## Generative Effects
 
 - Going to discuss generative effects within the context of posets (preorder sets) which have some really interesting properties
 - I'm going to do that by showing some motivating examples and introduce you to different concepts that are central to category theory.
@@ -84,14 +84,14 @@ As we've already seen, the `isDotConnectedToStar` does not preserve through join
 (isDotConnectedToStar a `join` isDotConnectedToStar b) `lessThanOrEq` isDotConnectedToStar (a `join` b)
 ```
 
-# Monotone Maps
+## Monotone Maps
 
 We've been talking about the properties preserved through certain functions we've defined. In the above case, that the `isDotConnectedToStar` function preserves order, but not joins. If we jump up a level, and talk about how posets themselves can be related we can talk about monotone maps. Monotone maps are functions that preserve poset orders. Let's take a look at some examples.
 
 <p align="center"><img width="519" alt="monotone-map1" src="https://user-images.githubusercontent.com/24247/41991771-aa30feee-7a14-11e8-879e-c1a82e48c7ff.png"></p>
 <p align="center"><img width="703" alt="monotone-map2" src="https://user-images.githubusercontent.com/24247/41991772-aa54a434-7a14-11e8-9121-6d40c98ff8ec.png"></p>
 
-# Meets and joins
+## Meets and joins
 
 As we said earlier, posets are sets with a simple order functions between elements. We can use this structure to define two types of elements with special properties. In the generative effect example we talked about joins and now we'll also talk about meets.
 
@@ -100,7 +100,7 @@ The meets of some poset P would be the greatest lower bound elements of P. The j
 <p align="center"><img width="500" alt="joins-and-meets" src="https://user-images.githubusercontent.com/24247/41992424-690714d8-7a16-11e8-85e2-2674c73a31e2.png"></p>
 
 
-# Back to Generative Effects
+## Back to Generative Effects
 Adam Elie wrote his PhD Thesis in 2017 on Systems, Generativity and Interactional Effects where he thinks of monotone functions as observations. A monotone function of type `P -> Q` is a phenomenon of `P` as observed by `Q`. He defines generative effects of such a function to be its failure to preserve joins.
 
 We say that a monotone function `m :: P -> Q` preserves meets if `m(a meet b) = m(a) meet m(b)`. We say that a monotone function preserves joins if `m(a join b) = m(a) join m(b)`.
@@ -113,7 +113,7 @@ m(a) `join` m(b) != m(a `join` b)
 
 If what Adam proposes is true, the process of combining large systems or reasoning about their subsystems depends on our ability to preserve the joins or meets of that system, respectively.
 
-# Galois connections
+## Galois connections
 
 So now we've gotten to the cool part which are Galois connections. Galois connections are a fancy name for _a pair of functions that tell you the best possible way to recover data that can't be recovered_. More precisely, they tell you _the best approximation to reversing a computation that can't be reversed_.
 
@@ -163,7 +163,7 @@ If some function `f :: A -> B` has a left or right adjoint and `A` is a poset, t
 
 Right adjoints preserve meets. Similarly, left adjoints preserve joins.
 
-# Conclusion
+## Conclusion
 
 * Posets are a special case of categories,
 * Monotone functions between posets are a special case of functors between categories,
@@ -174,7 +174,7 @@ Right adjoints preserve meets. Similarly, left adjoints preserve joins.
 * Joins are a special case of colimits.
 
 
-# References
+## References
 
 [Seven Sketches in Applied Category Theory](https://math.mit.edu/~dspivak/teaching/sp18/7Sketches.pdf)
 
