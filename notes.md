@@ -101,9 +101,9 @@ The meets of some poset P would be the greatest lower bound elements of P. The j
 
 
 # Back to Generative Effects
-Adam Elie wrote his PhD Thesis in 2017 on Systems, Generativity and Interactional Effects where he thinks of monotone functions as observations. A monotone function of type P -> Q is a phenomenon of P as observed by Q. He defines generative effects of such a function to be its failure to preserve joins.
+Adam Elie wrote his PhD Thesis in 2017 on Systems, Generativity and Interactional Effects where he thinks of monotone functions as observations. A monotone function of type `P -> Q` is a phenomenon of `P` as observed by `Q`. He defines generative effects of such a function to be its failure to preserve joins.
 
-We say that a monotone function `m :: P -> Q` preserves meets if m(a `meet` b) = m(a) `meet` m(b). We say that a monotone function preserves joins if m(a `join` b) = m(a) `join` m(b).
+We say that a monotone function `m :: P -> Q` preserves meets if `m(a meet b) = m(a) meet m(b)`. We say that a monotone function preserves joins if `m(a join b) = m(a) join m(b)`.
 
 We say that a monotone function `m :: P -> Q` sustains generative effects if there exist elements `a :: P, q :: P` such that
 
@@ -136,7 +136,7 @@ So if I say `2a = 4` tell me `a` you'd say 2. But if I say `2a = 3` tell me `a` 
 4. 2a =< b iff a =< floor(b / 2)
 5. 2a =< b iff a =< ceiling(b / 2)
 
-So here we have two definitions for `g`, one from below and one from above. `2a = 3` would result in `1` if we use `floor(b / 2)` or `2` if we use the more liberal definition of `ceil(b / 2)`. In this case, the left adjoint is the approximation "from below". It comes as close as possible to the (perhaps nonexistent) correct answer while making sure to never choose a number that is _too small_. The right adjoint comes as close as possible to making sure a number is not _too big_.
+So here we have two definitions for `g`, one from below and one from above. `2a = 3` would result in `1` if we use `floor(b / 2)`, or `2` if we use the more liberal definition of `ceil(b / 2)`. In this case, the left adjoint is the approximation "from below". It comes as close as possible to the (perhaps nonexistent) correct answer while making sure to never choose a number that is _too small_. The right adjoint comes as close as possible to making sure a number is not _too big_.
 
 ```Haskell
 -- a function that takes a set of balls and places them in a set of buckets
@@ -148,9 +148,13 @@ f [1, 2, 3] = Set (First 1 2 2) (Second 1) (Third 1 1 2 3)
 f* :: Set Bucket -> Set Ball
 f* Set (First 3 2) (Second 1) = 3 2 1
 
+-- This map hence takes a set of balls, and tells you all the buckets that contain at least one of these balls.
+-- The actual definition of leftAdjointF can be derived from the definitions of f and f*.
 leftAdjointF :: Set Ball -> Set Bucket
 leftAdjointF [2, 3] = Set (Second 1) (Third 1 1 2 3)
 
+-- This map takes a set of balls, and tells you all the buckets that only contain balls from the set.
+-- The actual definition of rightAdjointF can be derived from the definitions of f and f*.
 rightAdjointF :: Set Ball -> Set Bucket
 rightAdjointF [1] = Set (Second 1)
 ```
@@ -159,25 +163,23 @@ If some function `f :: A -> B` has a left or right adjoint and `A` is a poset, t
 
 Right adjoints preserve meets. Similarly, left adjoints preserve joins.
 
-
-
 # Conclusion
 
-posets are a special case of categories,
-monotone functions between posets are a special case of functors between categories,
-Galois connections between posets are a special case of adjoint functors between categories,
-left adjoint monotone functions are a special case of left adjoint functors,
-right adjoint monotone functions are a special case of right adjoint functors,
-meets are a special case of limits, and
-joins are a special case of colimits.
+* Posets are a special case of categories,
+* Monotone functions between posets are a special case of functors between categories,
+* Galois connections between posets are a special case of adjoint functors between categories,
+* Left adjoint monotone functions are a special case of left adjoint functors,
+* Right adjoint monotone functions are a special case of right adjoint functors,
+* Meets are a special case of limits, and
+* Joins are a special case of colimits.
 
 
+# References
 
-- Define what a galois connection is
-- Give example of y = x / 2 for Integers
-- Give example of [Ball] -> [Box Ball]
+[Seven Sketches in Applied Category Theory](https://math.mit.edu/~dspivak/teaching/sp18/7Sketches.pdf)
 
+[Applied Category Theory Course: Ordered Sets](https://johncarlosbaez.wordpress.com/2018/04/07/applied-category-theory-course-part-2/)
 
+[Applied Category Theory](http://www.appliedcategorytheory.org/)
 
-
-
+[Systems, generativity and interactional effects](https://dspace.mit.edu/handle/1721.1/109012)
