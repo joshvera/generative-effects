@@ -153,7 +153,7 @@ f* Set (First 3 2) (Second 1) = 3 2 1
 -- This map hence takes a set of balls, and tells you all the buckets that contain at least one of these balls.
 -- The actual definition of leftAdjointF can be derived from the definitions of f and f*.
 leftAdjointF :: Set Ball -> Set Bucket
-leftAdjointF [2, 3] = Set (Second 1) (Third 1 1 2 3)
+leftAdjointF [2, 3] = Set (First 1 2 2) (Third 1 1 2 3)
 
 -- This map takes a set of balls, and tells you all the buckets that only contain balls from the set.
 -- The actual definition of rightAdjointF can be derived from the definitions of f and f*.
